@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Aluno
+ * @author Maria Iris
  */
 
 public class Rede {
@@ -22,11 +22,20 @@ public class Rede {
     private Scanner entrada;
     
     public void iniciaRede(){
-       int [][] padroes = {{0,0}, {0,1}};
+       //Scanner entrada = new Scanner(System.in);
+       System.out.print("Informe os numeros de PADROES:");
+       qtdPadroes = entrada.nextInt();
+       System.out.print("Informe os numeros de ATRIBUTOS:");
+       qtdAtributos = entrada.nextInt();
+       
+       //mcp = new Neuronio(int qtdAtributos);
     }
     
     public void treinaRede(){
+        int treinamento = 1;
+        double erro;
         
+        //padroes[4][6] = {{1,0,1,0}, {0,1,0,1},{1,0,0,1},{0,1,1,1},{0,0,1,1},{0,0,0,1}};
     }
     
     public void testarRede(){
