@@ -9,38 +9,34 @@
  * @author Maria Iris
  */
 public class Neuronio {
-    private int x[];//entrada associada ao peso
-    private double w;//pesos (novo e atual)
+    private int[] x;//entrada associada ao peso
+    private double[] w;//pesos (novo e atual)
     private int y;//saida do neuronio
     private double e;//erro
     private double n;//taxa de aprendizagem 
-    private int sd; //saida desejada
+    //variaveis acrescentadas
+    private int yd; //saida desejada
     private final int qtdEntradas;
 
     public Neuronio(int qtdEntradas) {
         this.qtdEntradas = qtdEntradas;
         w = new double[qtdEntradas];
         x = new int[qtdEntradas];
-        n = 0.3;
-             
+        n = 0.3;        
     }
-
-    
-    
+   
     public void iniciarPesos(){
         for (int i = 0; i < qtdEntradas; i++) {
-			w[i] = 0;
+            w[i] = 0;
 	}
     }
     public void setSaidaDesejada(int valor){
-        sd=valor;
+        yd=valor;
     }
 
     public double setEntradas(int indice, int valor) {
         return x[indice] = valor;
     }
-    
-    
     
     public void calculaSaidaNeuronio(){
         double u = 0;
@@ -59,7 +55,7 @@ public class Neuronio {
     }
     
     public void setErro(){
-        e = sd - y;
+        e = yd - y;
         
 	if (e != 0)
             atualizaPeso();
@@ -70,7 +66,7 @@ public class Neuronio {
     public void atualizaPeso(){
         for (int i = 0; i < qtdEntradas; i++) {
             w[i] = w[i] + n*e*x[i];
-            System.err.println("w[" + i + "] = "+w[i]);
+            System.err.println("w{" + i + "} = "+w[i]);
         }    
     }
     
@@ -81,8 +77,5 @@ public class Neuronio {
      public double getSaida() {
         return y;
     }
-    
-    
-
    
 }
