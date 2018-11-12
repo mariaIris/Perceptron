@@ -32,10 +32,33 @@ public class Rede {
     }
     
     public void treinaRede(){
-        int treinamento = 1;
-        double erro;
+        //int treinamento = 1;
+        //double erro;
         
         //padroes[4][6] = {{1,0,1,0}, {0,1,0,1},{1,0,0,1},{0,1,1,1},{0,0,1,1},{0,0,0,1}};
+        
+        double erro;
+		int iteracao = 1;
+		System.out.println("--------------------------------");
+		System.out.println("TREINANDO REDE NEURAL PERCEPTRON");
+		System.out.println("--------------------------------");
+		do {
+			System.out.println("ITERACAO " + iteracao++);
+			erro = 0;
+			for (int i = 0; i < qtdPadroes; i++) {//Mostra todos os padroes
+				System.out.println("ENTRE COM OS ATRIBUTOS DO PADRAO "+i);
+				for (int j = 0; j < qtdAtributos; j++) {//Mostra os atributos de cada padrao
+					mcp.setEntrada(j, entrada.nextInt());//indice e valor da entrada do neuronio
+				}
+				System.out.println("ENTRE COM A SAIDA DESEJADA DO PADRAO " + i);
+				mcp.setSaidaDesejada(entrada.nextInt());
+				mcp.calcSaidaNeuronio();
+				mcp.setErro();
+				erro = erro + Math.abs(mcp.getErro()); //TODO valor absoluto de getErro
+			}
+		} while (erro > 0);
+		System.out.println("--------------------------------");
+
     }
     
     public void testarRede(){
