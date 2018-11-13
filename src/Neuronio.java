@@ -13,7 +13,7 @@ public class Neuronio {
     private double[] w;//pesos (novo e atual)
     private int y;//saida do neuronio
     private double e;//erro
-    private double n;//taxa de aprendizagem 
+    private double n;//taxa de aprend
     //variaveis acrescentadas
     private int yd; //saida desejada
     private final int qtdEntradas;
@@ -44,14 +44,14 @@ public class Neuronio {
             u = u + (x[i] * w[i]);
 	}
         
-	System.err.println("U = "+u);
-	//Funcao degrau, limiar=0
+	System.out.println("U = "+u);
+	//Funcao degrau
 	if(u > 0)
             y = 1;
 	else
             y = 0;
         
-	System.err.println("Y = "+y);
+	System.out.println("Y = "+y);
     }
     
     public void setErro(){
@@ -66,7 +66,7 @@ public class Neuronio {
     public void atualizaPeso(){
         for (int i = 0; i < qtdEntradas; i++) {
             w[i] = w[i] + n*e*x[i];
-            System.err.println("w{" + i + "} = "+w[i]);
+            System.out.println("w{" + i + "} = "+w[i]);
         }    
     }
     
